@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>自動抓取傳入參數成「類」陣列</title>
+  </head>
+  <body>
+    <script>
+      // arguments 是 ES6 提供的方法，可以直接抓到傳入的數值變成「類」陣列
+      function eddie() {
+        console.log(arguments);
+        console.log(arguments[0]);
+        console.log(arguments[1]);
+      }
+
+      eddie("mary", "gorge");
+    </script>
+  </body>
+</html>
