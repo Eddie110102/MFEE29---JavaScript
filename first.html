@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>輸入</title>
+  </head>
+  <body>
+    <h2 id="target"></h2>
+    <label for="input">姓名：<input type="text" id="input" /></label>
+    <hr />
+    <label for="color">顏色：<input type="color" id="color" /></label>
+    <hr>
+    <!-- <input type="image" id="image" src="masaaki-komori-_SbeCWYjwCQ-unsplash.jpg"> -->
+    <script>
+      const input = document.getElementById("input");
+      // 事件監聽 input 和 keyup 差異 : input抓不到keyCode
+      // input.addEventListener('input',(event)=>{
+      //     console.log(input.value);
+      //     console.log(event.keyCode);
+      // })
+      input.addEventListener("keyup", (event) => {
+        if (event.keyCode != 8) {
+          console.log("內容", input.value);
+          // 抓取文字最後一個字
+          const val = input.value.substr(-1);
+          console.log("最後一字", val, "KeyCode", event.keyCode);
+        }
+      });
+      color.addEventListener("blur", () => {
+        console.log(color.value);
+      });
+    </script>
+  </body>
+</html>

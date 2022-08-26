@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>break & contuine</title>
+  </head>
+  <body>
+    <script>
+      // 請使用者輸入正確內容才能結束迴圈(對話框)
+      //   while (true) {
+      //     let text = window.prompt("請輸入exit");
+      //     if (text === "exit") {
+      //       console.log("正確");
+      //       break; // break => 跳出迴圈
+      //     }
+      //     console.log(text);
+      //   }
+
+      // 請使用者輸入要跳過第幾次迴圈
+      //   target = window.prompt("請輸入1~10其中一個數字");
+      //   for (let i = 10; i > 0; i--) {
+      //     if (i === Number(target)) {
+      //       continue; // continue => 跳過此次，繼續下一次迴圈
+      //     }
+      //     console.log(`第${i}次`);
+      //   }
+
+    // 猜數字
+    // let isBingo = window.prompt('請從1 ~ 100隨機選一個')
+    // Math.random()
+    let num = Math.random()
+    console.log(num); // 隨機給予 0 ~ 1的數字
+    console.log(num * 100); // 隨機給予 0 ~ 1的數字 並乘上100
+    </script>
+  </body>
+</html>

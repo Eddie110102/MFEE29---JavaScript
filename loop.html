@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>迴圈</title>
+    <style>
+      body {
+        font-size: 13px;
+      }
+    </style>
+  </head>
+  <body>
+    <script>
+      // 1 加到 100
+      let total = 0;
+      // for 寫法
+      for (let i = 0; i < 101; i++) {
+        total += i;
+      }
+      console.log(`for寫法 ${total}`);
+
+      // while 寫法
+      let whileI = 0;
+      let whileTotal = 0;
+      while (whileI <= 100) {
+        whileTotal += whileI;
+        whileI++;
+      }
+      console.log(`while寫法 ${whileTotal}`);
+
+      // 列出不能被2及3整除的
+      let ans = [];
+      for (let i = 0; i <= 1000; i++) {
+        if (i % 2 != 0 && i % 3 != 0) {
+          ans.push(i);
+        }
+      }
+      console.log(ans);
+
+      // 九九乘法表
+      for (let i = 1; i < 10; i++) {
+        i < 10 ? (i = `0${i}`) : i;
+        document.write("| ");
+        for (let j = 1; j <= 9; j++) {
+          j < 10 ? (j = `0${j}`) : j;
+          document.write(
+            `${i} X ${j} = ${i * j < 10 ? `0${i * j}` : i * j} | `
+          );
+        }
+        document.write("<br>");
+      }
+
+      // Array 讀出陣列
+      let employees = [
+        { name: "Tom", age: 30, isSingle: true },
+        { name: "Eddie", age: 26, isSingle: false },
+        { name: "May", age: 24, isSingle: true },
+      ];
+      for (let i = 0, max = employees.length; i < max; i++) {
+        let { name, age, isSingle } = employees[i];
+        console.log(name);
+        console.log(age);
+        console.log(isSingle);
+      }
+      // key:value,key:value
+      for(let key in employees){
+        console.log(key); // 0,1,2,3
+        console.log('key',employees[key]); // {name:Tom...}
+      }
+
+      let twice = ['Nayeon','Momo','Tzuyu','Sana']
+      // for of
+      for(let i of twice){
+        console.log(i) //抓value  Nayeon,Momo....
+      }
+
+      //  for in 物件
+      for(let i in twice){
+        console.log(i); //抓key  0,1,2,3
+        console.log(twice[i]); //抓value  Nayeon,Momo....
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>判斷</title>
+  </head>
+  <body>
+    <script>
+      // switch (嚴格判斷包含型態 === )
+
+      let theDay = new Date().getDay();
+      // getDay 回傳 0 - 6 的數字， 0為星期天 ... 6為星期六
+      let nowDay = "";
+      let isWeekend = "";
+
+      // 判斷星期幾
+      switch (theDay) {
+        case 0:
+          nowDay = "日";
+          break;
+        case 1:
+          nowDay = "一";
+          break;
+        case 2:
+          nowDay = "二";
+          break;
+        case 3:
+          nowDay = "三";
+          break;
+        case 4:
+          nowDay = "四";
+          break;
+        case 5:
+          nowDay = "五";
+          break;
+        case 6:
+          nowDay = "六";
+          break;
+        case Default:
+          nowDay = "未知錯誤";
+          break;
+      }
+
+      // 判斷評價日
+      switch (theDay) {
+        case 0:
+        case 6:
+          isWeekend = "假日";
+          break;
+        case 1:
+        case 2:
+        case 3:
+        case 4:
+        case 5:
+          isWeekend = "平日";
+          break;
+      }
+      console.log(`今天是星期${nowDay} , ${isWeekend}`);
+    </script>
+  </body>
+</html>

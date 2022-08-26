@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Function</title>
+  </head>
+  <body>
+    <script src="scripts/temperature.js"></script>
+    <script>
+      function sayHi() {
+        console.log(`Hello Function!`);
+      }
+      sayHi();
+
+      // 帶變數進入function
+      function sayHiUser(name) {
+        console.log(`Hello ${name}!`);
+      }
+      sayHiUser("Eddie");
+
+      // 攝氏轉華氏
+      function CtoF(degreeC) {
+        let degreeF = degreeC * (9 / 5) + 32;
+        // 四捨五入到小數點後兩位
+        degreeF = degreeF.toFixed(2);
+        console.log(`攝氏${degreeC}℃可以轉換成華氏${degreeF}℉`);
+      }
+      CtoF(26);
+      CtoF(61);
+
+      // 華氏轉攝氏
+      function FtoC(degreeF) {
+        let degreeC = ((degreeF - 32) * 5) / 9;
+        // 四捨五入到小數點後兩位
+        degreeC = degreeC.toFixed(2);
+        console.log(`華氏${degreeF}℉可以轉換成攝氏${degreeC}℃`);
+      }
+      FtoC(100);
+      FtoC(155);
+
+      // 引用 temperature.js 中的 function
+      temperatureConvert(100, "F");
+      temperatureConvert(37, "C");
+
+      // 顯示溫度轉換結果
+      let isHot = temperatureConvert(85, "F");
+      console.log(isHot);
+      if (isHot[0] > 35) {
+        alert(`${isHot[0]}°${isHot[1]} 開冷氣`);
+      } else {
+        alert(`${isHot[0]}°${isHot[1]} 很涼`);
+      }
+    </script>
+  </body>
+</html>

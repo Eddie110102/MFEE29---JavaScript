@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Click Input Get Value</title>
+  </head>
+  <body>
+    <label for="text">請輸入內容：<input type="text" id="text" /></label>
+    <input type="button" id="button" value="提交" />
+    <div id="value"></div>
+    <script>
+      const text = document.getElementById("text");
+      const button = document.getElementById("button");
+      const value = document.getElementById("value");
+      // 點擊提交
+      button.addEventListener("click", () => {
+        value.innerHTML = text.value;
+        text.value = "";
+      });
+      // Enter鍵
+      text.addEventListener("keypress", (e) => {
+        if (e.keyCode == 13) {
+          value.innerHTML = text.value;
+          text.value = "";
+        }
+      });
+    </script>
+  </body>
+</html>

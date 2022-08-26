@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ChangeImage</title>
+  </head>
+  <body>
+    <h2>點擊圖片變換src</h2>
+    <img
+      src="https://cdn.hk01.com/di/media/images/dw/20220712/623508635430948864982613.jpeg/peXbL851RCSWn8uNJVA6VeqUOjm8TizkV_AJalfwCWo?v=w1280r16_9"
+      height="300"
+      alt=""
+      id="image"
+    />
+    <img src="images/Logoslogan_sm.png" alt="" id="practice" />
+    <script>
+      // 點擊圖片變換src
+      const image = document.getElementById("image");
+      const src = [
+        "https://cdn.hk01.com/di/media/images/dw/20220712/623508635430948864982613.jpeg/peXbL851RCSWn8uNJVA6VeqUOjm8TizkV_AJalfwCWo?v=w1280r16_9",
+        "https://upload.wikimedia.org/wikipedia/commons/f/f4/180717_%EC%97%B4%EB%A6%B0%EC%9D%8C%EC%95%85%ED%9A%8C_%ED%8A%B8%EC%99%80%EC%9D%B4%EC%8A%A4_02.jpg",
+        "https://img.ltn.com.tw/Upload/style/page/2020/08/05/200805-14201-1-pFT6l.jpg",
+      ];
+      let i = 0;
+      image.addEventListener("click", () => {
+        if (i > 2) {
+          i = 0;
+        }
+        image.src = `${src[i]}`;
+        i++;
+      });
+
+      // 上課練習
+      const practice = document.getElementById("practice");
+      practice.addEventListener("click", () => {
+        if (practice.getAttribute("src") == "images/Logoslogan_sm.png") {
+          practice.setAttribute("src", "images/RainbowLogo.png");
+        } else {
+          practice.setAttribute("src", "images/Logoslogan_sm.png");
+        }
+      });
+    </script>
+  </body>
+</html>

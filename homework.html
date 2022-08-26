@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>回家作業</title>
+  </head>
+  <body>
+    <!-- 練習刪除字串的前後空白 -->
+    <section>
+      <h2>姓名</h2>
+      <label for="name">姓名：<input type="text" id="name" /></label>
+      <input type="submit" name="" id="checkName" value="送出" />
+      <p id="nameResponse"></p>
+    </section>
+    <hr />
+    <!-- 練習遞迴函式 -->
+    <section>
+      <h2>遞迴函式</h2>
+      <div id="loop"></div>
+    </section>
+    <hr />
+    <!-- 作業1：BMI計算機 -->
+    <section>
+      <h2>BMI</h2>
+      <label for="height">身高：<input type="text" id="height" />公尺</label>
+      <label for="weight">體重：<input type="text" id="weight" />公斤</label>
+      <input type="button" id="BMIconvert" value="計算" />
+      <h3>BMI = <span id="BMIanswer"></span>,結果 <span id="isFat"></span></h3>
+    </section>
+    <hr />
+    <!-- 作業2：畫出聖誕樹 -->
+    <section>
+      <h2>聖誕樹</h2>
+      <div id="tree" style="text-align: center;"></div>
+    </section>
+    <hr />
+    <!-- 作業3：終極密碼 -->
+    <section>
+      <h2>終極密碼</h2>
+      <label for="guessMyNumber"
+        ><input type="text" maxlength="3" id="guessMyNumber"
+      /></label>
+      <input type="button" id="isMyNumber" value="送出" />
+      <h3 id="answerMyNumber"></h3>
+    </section>
+    <hr />
+    <!-- 作業4：確認是否為閏年 -->
+    <section>
+      <h2>確認是否為閏年</h2>
+      <label for="year"
+        >請輸入西元：<input type="text" id="year" maxlength="4" /> 年</label
+      >
+      <input type="submit" id="checkYear" value="確認" />
+      <h3 id="isLeapYearAns"></h3>
+    </section>
+    <hr />
+
+    <!-- 檢查姓名 JavaScript Section -->
+    <script src="scripts/validation.js"></script>
+    <script>
+      const name = document.getElementById("name");
+      const submitName = document.getElementById("checkName");
+      const nameResponse = document.getElementById("nameResponse");
+      submitName.addEventListener("click", () => {
+        let userName = name.value.trim();
+        let res = checkMyName(userName);
+        nameResponse.innerText = res;
+      });
+    </script>
+    <!-- 遞迴函式 JavaScript Section -->
+    <script>
+      const Loop = document.getElementById("loop");
+      function loop(n) {
+        if (n != 0) {
+          return n * loop(n - 1);
+        }
+        return 1; // 如果沒有加這行會變成 undefined
+      }
+      Loop.innerText = loop(4); // 4 X 3 X 2 X 1 = 24
+    </script>
+    <!-- 測量BMI JavaScript Section -->
+    <script src="scripts/bmi.js"></script>
+    <script>
+      const height = document.getElementById("height");
+      const weight = document.getElementById("weight");
+      const BMIsubmit = document.getElementById("BMIconvert");
+      const BMIanswer = document.getElementById("BMIanswer");
+      const isFat = document.getElementById("isFat");
+      BMIconvert.addEventListener("click", () => {
+        // .trim() 檢查使用者輸入的值是否有空白
+        let W = weight.value.trim();
+        let H = height.value.trim();
+        outputMyBMI(W, H);
+      });
+    </script>
+
+    <!-- 畫聖誕樹 JavaScript Section -->
+    <script src="scripts/draw.js"></script>
+    <script>
+      const tree = document.getElementById("tree");
+      drawTree(tree, "^");
+    </script>
+    <!-- 終極密碼 JavaScript Section -->
+    <script src="scripts/games.js"></script>
+    <script>
+      const guessMyNumber = document.getElementById("guessMyNumber");
+      const isMyNumber = document.getElementById("isMyNumber");
+      const answerMyNumber = document.getElementById("answerMyNumber");
+      let theBomb = Math.floor(Math.random() * 100);
+      isMyNumber.addEventListener("click", () => {
+        let ans = guessMyNumber.value.trim();
+        answerMyNumber.innerText = bomb(ans, theBomb);
+      });
+    </script>
+    <!-- 閏年檢查 JavaScript Section -->
+    <script src="scripts/year.js"></script>
+    <script>
+      const inputYear = document.getElementById("year");
+      const checkYear = document.getElementById("checkYear");
+      const isLeapYearAns = document.getElementById("isLeapYearAns");
+      checkYear.addEventListener("click", () => {
+        let val = inputYear.value.trim();
+        isLeapYearAns.innerText = isLeapYear(val);
+      });
+    </script>
+  </body>
+</html>

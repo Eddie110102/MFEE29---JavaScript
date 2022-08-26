@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MouseOver</title>
+    <style>
+      .eddie {
+        color: blue;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>更改文字顏色</h2>
+    <h1 id="title">JavaScript Hover Color</h1>
+    <label for="color">顏色：<input type="color" id="color" /></label>
+    <hr />
+    <h2>滑鼠移入後加上class</h2>
+    <h4 id="h4">leaf</h4>
+    <hr />
+    
+    <script>
+      // 更改文字顏色
+      const title = document.getElementById("title");
+      const color = document.getElementById("color");
+      let lastColor = "";
+      // hover
+      title.addEventListener("mouseover", () => {
+        title.style.color = "red";
+      });
+      title.addEventListener("mouseout", () => {
+        title.style.color = lastColor;
+      });
+      // 監聽 type=color 的顏色 使用 input 動作 可以同步
+      color.addEventListener("input", () => {
+        console.log(color.value);
+        lastColor = color.value;
+        console.log(lastColor);
+        title.style.color = lastColor;
+      });
+
+      // 滑鼠移入後加上class
+      const h4 = document.getElementById("h4");
+      h4.addEventListener("mouseenter", () => {
+        h4.classList.add("eddie");
+      });
+      // 滑鼠移出後移除class
+      h4.addEventListener("mouseout", () => {
+        h4.classList.remove("eddie");
+      });
+
+      
+    </script>
+  </body>
+</html>

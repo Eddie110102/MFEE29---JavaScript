@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>幣值換算</title>
+  </head>
+  <body>
+    <label for="USD">美金：<input type="text" id="USD" /></label>
+    <label>台幣：<input id="NTD"></inp></label>
+    <script>
+      const usd = document.getElementById("USD");
+      const ntd = document.getElementById("NTD");
+
+      const RATE = 30.5;
+      usd.addEventListener('blur',()=>{
+        ntd.value = usd.value * RATE;
+      })
+      ntd.addEventListener('blur',()=>{
+        usd.value = ntd.value / RATE;
+      })
+    </script>
+  </body>
+</html>
