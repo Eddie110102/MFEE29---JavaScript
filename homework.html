@@ -33,7 +33,7 @@
     <!-- 作業2：畫出聖誕樹 -->
     <section>
       <h2>聖誕樹</h2>
-      <div id="tree" style="text-align: center;"></div>
+      <div id="tree" style="text-align: center"></div>
     </section>
     <hr />
     <!-- 作業3：終極密碼 -->
@@ -56,6 +56,11 @@
       <h3 id="isLeapYearAns"></h3>
     </section>
     <hr />
+    <!-- 作業5：函式接收兩個參數回傳最小值 -->
+    <section>
+      <h2>函式接收兩個參數回傳最小值</h2>
+      <div id="minNum"></div>
+    </section>
 
     <!-- 檢查姓名 JavaScript Section -->
     <script src="scripts/validation.js"></script>
@@ -124,6 +129,18 @@
         let val = inputYear.value.trim();
         isLeapYearAns.innerText = isLeapYear(val);
       });
+    </script>
+    <!-- 比較數字，取最小值 -->
+    <script>
+      function compare(a, b) {
+        if (a > b) {
+          return b;
+        } else {
+          return a;
+        }
+      }
+      const minNum = document.getElementById('minNum');
+      minNum.innerText = compare(13,9);
     </script>
   </body>
 </html>
