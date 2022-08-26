@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Params</title>
+  </head>
+  <body>
+    <script>
+      // 預設參數 把有預設參數放後面
+      //   function getSum(num1, num2 = 3) {
+      //     console.log(num1 + num2);
+      //   }
+      //   getSum(); // NaN
+      //   getSum(4); // 4+3 = 7
+      //   getSum(4, 9); // 4+9 = 13
+
+      // 其餘運算子 ( rest operator )
+      // function getSum(a,b,...vals) {
+      //     let sum = 0;
+      //     for(let i=0,max=vals.length;i<max;i++){
+      //         sum+= vals[i]
+      //     }
+      //     console.log(vals);
+      //     // console.log(sum);
+      //   }
+      //   getSum(1,2,3) // vals = [3]
+      //   getSum(1,2,3,4) // vals = [3,4]
+
+      // 具名參數 (不管順序)
+      function user({name, email, age}) {
+        console.log(name, email, age);
+      }
+      user({ name: "eddie", email: "eddiewang@ispan.com.tw", age: "26" });
+
+      // 展開運算子 ( spread operator )
+      let arr1 = ['a','b','c'];
+      let arr2 = ['d','e','f'];
+      let arr3 = [];
+
+      // 舊寫法
+      // arr3.push('a');
+      // arr3.push('b');
+      // arr3.push('c');
+
+      // 新寫法，展開並複製進 arr3 變成新陣列
+      arr3.push(...arr1,...arr2)
+      console.log(arr3);
+
+    </script>
+  </body>
+</html>
