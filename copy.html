@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>展開複製</title>
+</head>
+<body>
+    <script>
+        // 淺拷貝
+        let itemA = ['a','b','c']
+        let itemB = [...itemA];
+        itemB.push('d')
+        console.log(itemA); // ['a','b','c','d']
+        console.log(itemB); // ['a','b','c','d']
+        
+        // 深拷貝
+        let itemC = ['a','b','c',{"name":'Tom'}]
+        let itemD = JSON.parse(JSON.stringify(itemC)) //用json.stringfy 轉成字串 , 再用 json.parse 轉成陣列 達到深層拷貝
+        itemD.push('d')
+        itemD[3].name = 'Eddie';
+        console.log(itemC); // ['a','b','c','d']
+        console.log(itemD); // ['a','b','c','d']
+    </script>
+</body>
+</html>
