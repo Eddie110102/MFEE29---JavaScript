@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TagName</title>
+  </head>
+  <body>
+    <button>button1</button>
+    <button>button2</button>
+    <button>button3</button>
+    <button>button4</button>
+    <button>button5</button>
+    <script>
+      // let 寫法
+      let btns = document.getElementsByTagName("button");
+      //   for(let i=0,max=btns.length;i<max;i++){
+      //     btns[i].addEventListener('click',(e)=>{
+      //         console.log(e.currentTarget.innerText); // button1 ....
+      //         console.log(i); // index 0,1,2,3,4
+      //     })
+      //   }
+
+      //   閉包函式 var
+      for (var i = 0, max = btns.length; i < max; i++) {
+        (function (x) {
+          btns[x].addEventListener("click", (e) => {
+            console.log(e.currentTarget.innerText); // button1 ....
+            console.log(x); // index 0,1,2,3,4
+          });
+        })(i);
+      }
+    </script>
+  </body>
+</html>
