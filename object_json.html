@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Object</title>
+  </head>
+  <body>
+    <ul id="empUl"></ul>
+    <script>
+      // ------------------ 我是分隔線 ------------------ //
+      let emps = [
+        { name: "Tom", workYears: 3, salary: 65000 },
+        { name: "Jack", workYears: 5, salary: 45000 },
+        { name: "Mary", workYears: 7, salary: 40000 },
+        { name: "Eddie", workYears: 0, salary: 38000 },
+        { name: "Amos", workYears: 3, salary: 50400 },
+        { name: "lydia", workYears: 0, salary: 43000 },
+      ];
+      //   薪水高到低排序
+      //   emps.sort((e1, e2) => e1.salary - e2.salary);
+
+      //   let datas = emps.map((v, i, a) => {
+      //     let { name, workYears, salary } = v;
+      //     return `<li>姓名 : ${name} 薪水 : ${salary}</li>`;
+      //   });
+
+      // 將資料加入至畫面中
+      // datas.join('') => 把陣列變成字串 就不會多 ","
+      //   document.getElementById("empUl").innerHTML = datas.join("");
+
+
+      // 篩選出薪水超過42k的員工
+      let emps50k = emps.filter((v, i, a) => v.salary >= 42000);
+      let datas = emps50k.map((v, i, a) => {
+        let { name, workYears, salary } = v;
+        return `<li>姓名 : ${name} | 薪水 : ${salary}</li>`;
+      });
+
+      document.getElementById("empUl").innerHTML = datas.join("");
+    </script>
+  </body>
+</html>
