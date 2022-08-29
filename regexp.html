@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RegExp物件</title>
+  </head>
+  <body>
+    <label for="email">信箱：<input type="text" id="email" /></label>
+    <script>
+      let myMail = document.getElementById("email");
+      myMail.addEventListener("keyup", (e) => {
+        if (e.keyCode === 13) {
+          checkEmail(myMail.value);
+        }
+      });
+      // 檢查Email是否有符合格式
+      function checkEmail(a) {
+        let re = /^.+@.+\..{2,3}$/;
+        console.log(re.test(a));
+      }
+    </script>
+  </body>
+</html>
