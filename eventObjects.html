@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Event Objects</title>
+    <style>
+      .note {
+        width: 300px;
+        height: 300px;
+        background-color: lightblue;
+        position: relative;
+        top: 300px;
+        left: 400px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="note"></div>
+    <!-- <div class="note"></div> -->
+    <script>
+      // 單個
+      //   let divNote = document.querySelector(".note");
+      //   divNote.addEventListener("mousedown", (e) => {
+      //     console.log(e);
+      //   });
+      // 多個
+      let divNotes = document.querySelectorAll(".note");
+      for (let i = 0; i < divNotes.length; i++) {
+        divNotes[i].addEventListener("mousedown", (e) => {
+          //   console.log(e);
+        });
+      }
+
+      document.addEventListener("mousedown", (e) => {
+        // console.log(e);
+        // 事件對象
+        // console.log(e.target);
+        // console.log(e.currentTarget);
+        // 事件類型
+        // console.log(e.type);
+        // 偵測滑鼠案件
+        // console.log(e.button); // 0 = 左鍵; 1 = 滾輪; 2 = 右鍵;
+        // switch (e.button) {
+        //   case 0:
+        //     console.log("左鍵");
+        //     break;
+        //   case 1:
+        //     console.log("滾輪");
+        //     break;
+        //   case 2:
+        //     console.log("右鍵");
+        //     break;
+        // }
+        // 抓取座標
+        // screenX screenY 整個螢幕的尺寸(螢幕左上角為0,0)
+        console.log(e.screenX, e.screenY);
+        // clientX clientY 瀏覽器視窗的尺寸(瀏覽器左上角為0,0)
+        console.log(e.clientX, e.clientY);
+        // offsetX offsetY 被點擊物件的座標(物件左上角為0,0)
+        console.log(e.offsetX, e.offsetY);
+        // e.target.offsetTop e.target.offsetLeft 被點擊物件在document中的座標(document左上角為0,0)
+        console.log(e.target.offsetTop, e.target.offsetLeft);
+      });
+
+      // contextmenu 右鍵選單 + preventDefault() 取消原有行為 = 隱藏右鍵選單
+      document.addEventListener("contextmenu", (e) => e.preventDefault());
+    </script>
+  </body>
+</html>
